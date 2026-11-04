@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Chubienggg.</title>
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            background-color: #121212; 
+            color: #ffffff; 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* BLURRED BACKGROUND LAYER */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Palitan ang 'profile.jpg' kung iba ang file name ng photo mo */
+            background-image: url('bg_pic.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(25px) brightness(0.35);
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+        /* HEADER STYLES */
+        .main-header { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 18px 40px; 
+            background-color: rgba(0, 0, 0, 0.75); 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-left { display: flex; align-items: center; gap: 40px; }
+        
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #ff6600; /* Orange Accent */
+        }
+
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a { color: #aaaaaa; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: #ffffff; }
+
+        /* ACTIVE NAV INDICATOR */
+        .nav-links a.active {
+            border-bottom: 2px solid #ff6600;
+            padding-bottom: 4px;
+        }
+
+        .header-right { display: flex; align-items: center; gap: 12px; }
+        .btn { padding: 8px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; text-decoration: none; display: inline-block; cursor: pointer; }
+        .btn-outline { background-color: transparent; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); transition: 0.2s; }
+        .btn-outline:hover { border-color: #ff6600; color: #ff6600; background-color: rgba(30, 30, 30, 0.8); }
+
+        /* MAIN ABOUT SECTION CONTAINER */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* GLASSMORPHISM CARD CONTAINING YOUR CONTENT */
+        .about-card-wrapper {
+            background-color: rgba(20, 20, 20, 0.75);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            max-width: 1000px;
+            width: 100%;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        /* GRID LAYOUT - CENTERED VERTICALLY */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 40px;
+            align-items: center; /* Vertically centers the image relative to the text content */
+        }
+
+        /* PORTRAIT IMAGE - CLASSIC 3:2 ASPECT RATIO FRAME */
+        .profile-img-box {
+            width: 100%;
+            aspect-ratio: 2 / 3; /* Vertical 3:2 camera aspect ratio */
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .profile-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center; /* Ensures exact center cropping */
+            display: block;
+        }
+
+        /* ABOUT TEXT CONTENT */
+        .about-info h1 {
+            font-size: 2.3rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .about-info .subtitle {
+            color: #ff6600; /* Orange Subtitle */
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .about-info h3 {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .about-info p {
+            color: #cccccc;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        /* SOCIAL MEDIA ICONS */
+        .social-links {
+            display: flex;
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #ff6600;
+            color: #ffffff;
+            border-color: #ff6600;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 102, 0, 0.4);
+        }
+
+        /* RESPONSIVE DESIGN FOR MOBILE */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .profile-img-box {
+                aspect-ratio: 3 / 2; /* Switch to horizontal 3:2 layout on mobile screens */
+            }
+            .about-card-wrapper {
+                padding: 25px;
+            }
+            .about-info h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER MENU -->
+    <header class="main-header">
+        <div class="header-left">
+            <a href="index.html" class="logo">Chubienggg<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Explore</a></li>
+                <li><a href="about.html" class="active">About Me</a></li>
+            </ul>
+        </div>
+        <div class="header-right">
+            <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+        </div>
+    </header>
+
+    <!-- MAIN ABOUT CARD -->
+    <div class="main-wrapper">
+        <div class="about-card-wrapper">
+            <div class="about-grid">
+                
+                <!-- LEFT SIDE: Profile Photo (3:2 Aspect Ratio) -->
+                <div class="profile-img-box">
+                    <img src="profile_pic1.jpeg" alt="Chubienggg Portrait">
+                </div>
+
+                <!-- RIGHT SIDE: Biography & Socials -->
+                <div class="about-info">
+                    <h1>ABOUT ME</h1>
+                    <div class="subtitle">Ernani O. Sabado Jr. — Amateur Photographer</div>
+                    
+                    <p>
+                        My name is Ernani O. Sabado Jr., also known as "Chubienggg." I am an independent photographer based in Sagay City, Negros Occidental. My primary passion lies in street photography, where I focus on capturing authentic, unscripted emotions and the untold stories unfolding within my local community. Whether I am documenting raw everyday life on the streets, framing candid portraits, or capturing the quiet details of nature through moon and bird photography, I view every frame as a way to preserve genuine moments in time.
+                    </p>
+
+                    <p>
+                        Beyond street and personal creative work, I serve as a student photojournalist for The Northern Forum, the official publication of the State University of Northern Negros (SUNN). My practical experience spans a diverse range of client and community work as a freelance photographer, including pre-debuts, pre-birthdays, portraits, and solemn event coverage like funerals. I have also volunteered as a photographer during local festival celebrations, capturing the vibrant culture and energy of my hometown. I approach every project with dedication, narrative focus, and respect for my subjects.
+                    </p>
+
+                    <!-- SOCIAL ICONS -->
+                    <div class="social-links">
+                        <a href="https://youtube.com" target="_blank" class="social-icon" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://tiktok.com" target="_blank" class="social-icon" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

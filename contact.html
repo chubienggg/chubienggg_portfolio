@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Ernani O. Sabado Jr.</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #121212; color: #ffffff; font-family: system-ui, sans-serif; line-height: 1.6; }
+
+        .main-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background-color: #000000; border-bottom: 1px solid #222; }
+        .header-left { display: flex; align-items: center; gap: 30px; }
+        .logo { font-size: 1.3rem; font-weight: 800; color: #ffffff; text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+        .nav-links a:hover, .nav-links a.active { color: #ffffff; }
+
+        .header-right { display: flex; align-items: center; gap: 12px; }
+        .btn { padding: 8px 18px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; text-decoration: none; display: inline-block; cursor: pointer; }
+        .btn-outline { background-color: transparent; color: #ffffff; border: 1px solid #333; }
+        .btn-outline:hover { border-color: #666; background-color: #1e1e1e; }
+        .btn-primary { background-color: #0066ff; color: #ffffff; border: none; }
+
+        .container { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+        .contact-card { padding: 40px; background-color: #1a1a1a; border-radius: 12px; border: 1px solid #262626; }
+        .contact-card h1 { font-size: 2rem; margin-bottom: 15px; color: #0066ff; }
+        .contact-card p { color: #b0b0b0; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <!-- MAIN NAVIGATION MENU -->
+    <header class="main-header">
+        <div class="header-left">
+            <a href="index.html" class="logo">Ernani O. Sabado Jr.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Explore</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </div>
+        <div class="header-right">
+            <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+            <a href="contact.html" class="btn btn-primary">Hire Me</a>
+        </div>
+    </header>
+
+    <!-- CONTACT CONTENT -->
+    <div class="container">
+        <section class="contact-card">
+            <h1>Get In Touch</h1>
+            <p>Got a photography project in mind, want to collaborate, or looking to book a shoot? Let's connect!</p>
+            <p style="color: #ffffff; font-size: 1.1rem;">
+                <strong>Email:</strong> <a href="mail to:sabadoernani@gmail.com" style="color: #0066ff; text-decoration: none;">sabadoernani@gmail.com</a>
+            </p>
+            <br>
+            <a href="index.html" class="btn btn-outline">← Back to Gallery</a>
+        </section>
+    </div>
+
+</body>
+</html>

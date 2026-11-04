@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chubienggg. | Portfolio</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            background-color: #121212; 
+            color: #ffffff; 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* BLURRED BACKGROUND LAYER */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 💡 PALITAN ANG 'profile.jpg' NG FILE NAME NG LTRATO MO SA FOLDER */
+            background-image: url('bg_pic.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px) brightness(0.50);
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+        /* HEADER STYLES */
+        .main-header { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 18px 40px; 
+            background-color: rgba(0, 0, 0, 0.75); 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        }
+
+        .header-left { display: flex; align-items: center; gap: 40px; }
+        
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #ff6600; /* Orange Accent */
+        }
+
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a { color: #aaaaaa; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: #ffffff; }
+
+        .nav-links a.active {
+            border-bottom: 2px solid #ff6600;
+            padding-bottom: 4px;
+        }
+
+        .header-right { display: flex; align-items: center; gap: 12px; }
+        .btn { padding: 8px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; text-decoration: none; display: inline-block; cursor: pointer; }
+        .btn-outline { background-color: transparent; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); transition: 0.2s; }
+        .btn-outline:hover { border-color: #ff6600; color: #ff6600; background-color: rgba(30, 30, 30, 0.8); }
+
+        /* CATEGORY BAR */
+        .category-bar { display: flex; gap: 10px; padding: 16px 40px; background-color: rgba(10, 10, 10, 0.75); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); overflow-x: auto; }
+        .tag-chip { background-color: rgba(26, 26, 26, 0.8); color: #d1d1d1; padding: 8px 18px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.1); white-space: nowrap; transition: 0.2s; }
+        .tag-chip:hover, .tag-chip.active { background-color: #ffffff; color: #000000; border-color: #ffffff; }
+
+        /* CONTAINER & GLASSMORPHISM */
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        
+        .hero-banner { 
+            background: rgba(20, 20, 20, 0.75); 
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.12); 
+            border-radius: 16px; 
+            padding: 50px 30px; 
+            text-align: center; 
+            margin-bottom: 40px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+        .hero-banner h1 { font-size: 2.2rem; margin-bottom: 12px; color: #ffffff; }
+        .hero-banner p { color: #cccccc; max-width: 600px; margin: 0 auto; }
+
+        /* GALLERY GRID */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .gallery-card { 
+            background-color: rgba(26, 26, 26, 0.85); 
+            backdrop-filter: blur(10px);
+            border-radius: 12px; 
+            overflow: hidden; 
+            border: 1px solid rgba(255, 255, 255, 0.12); 
+            transition: transform 0.3s ease;
+        }
+        .gallery-card:hover { transform: translateY(-5px); border-color: rgba(255, 102, 0, 0.5); }
+        .gallery-card img { width: 100%; height: 240px; object-fit: cover; display: block; }
+        .gallery-card-info { padding: 16px; }
+        .gallery-card-info h3 { font-size: 1.1rem; margin-bottom: 4px; color: #ffffff; }
+        .gallery-card-info p { font-size: 0.85rem; color: #ff6600; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <!-- MAIN NAVIGATION MENU -->
+    <header class="main-header">
+        <div class="header-left">
+            <a href="index.html" class="logo">Chubienggg<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Explore</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </div>
+        <div class="header-right">
+            <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+        </div>
+    </header>
+
+    <!-- CATEGORY TAG CHIPS -->
+    <nav class="category-bar">
+        <a href="index.html" class="tag-chip active">All Photography</a>
+        <a href="halloween.html" class="tag-chip">Halloween Photoshoot</a>
+        <a href="predebut.html" class="tag-chip">Pre-Debut Photoshoot</a>
+        <a href="funshoots.html" class="tag-chip">Funshoots</a>
+    </nav>
+
+    <!-- MAIN GALLERY CONTENT -->
+    <div class="container">
+        <section class="hero-banner">
+            <h1>Visual Stories & Photography</h1>
+            <p>Explore complete collections featuring Halloween shoots, pre-debut portraits, and creative funshoots.</p>
+        </section>
+
+        <section id="gallery">
+            <h2 style="margin-bottom: 20px; font-weight: 600; color: #ffffff;">Featured Work</h2>
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="photo1.jpg" alt="Work 1">
+                    <div class="gallery-card-info">
+                        <h3>Halloween Dark Portrait</h3>
+                        <p>Halloween Photoshoot</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="photo2.jpg" alt="Work 2">
+                    <div class="gallery-card-info">
+                        <h3>Pre-Debut Elegance</h3>
+                        <p>Pre-Debut Photoshoot</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="photo3.jpg" alt="Work 3">
+                    <div class="gallery-card-info">
+                        <h3>Creative Concept Funshoot</h3>
+                        <p>Funshoots</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

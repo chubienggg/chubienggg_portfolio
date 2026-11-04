@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funshoots | Ernani O. Sabado Jr.</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #121212; color: #ffffff; font-family: system-ui, sans-serif; line-height: 1.6; }
+        .main-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background-color: #000000; border-bottom: 1px solid #222; }
+        .header-left { display: flex; align-items: center; gap: 30px; }
+        .logo { font-size: 1.3rem; font-weight: 800; color: #ffffff; text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+        .nav-links a:hover { color: #ffffff; }
+        .btn { padding: 8px 18px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; text-decoration: none; display: inline-block; }
+        .btn-outline { background-color: transparent; color: #ffffff; border: 1px solid #333; }
+        .category-bar { display: flex; gap: 10px; padding: 16px 28px; background-color: #0a0a0a; border-bottom: 1px solid #1f1f1f; overflow-x: auto; }
+        .tag-chip { background-color: #1a1a1a; color: #d1d1d1; padding: 8px 18px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; border: 1px solid #2a2a2a; white-space: nowrap; }
+        .tag-chip.active, .tag-chip:hover { background-color: #ffffff; color: #000000; }
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+        .gallery-card { background-color: #1a1a1a; border-radius: 12px; overflow: hidden; border: 1px solid #262626; }
+        .gallery-card img { width: 100%; height: 240px; object-fit: cover; display: block; }
+        .gallery-card-info { padding: 16px; }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <a href="index.html" class="logo">Ernani O. Sabado Jr.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Explore</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </div>
+        <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+    </header>
+
+    <nav class="category-bar">
+        <a href="index.html" class="tag-chip">All Photography</a>
+        <a href="halloween.html" class="tag-chip">Halloween Photoshoot</a>
+        <a href="predebut.html" class="tag-chip">Pre-Debut Photoshoot</a>
+        <a href="funshoots.html" class="tag-chip active">Funshoots</a>
+    </nav>
+
+    <div class="container">
+        <h2>Funshoots Works</h2>
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="photo3.jpg" alt="Funshoot Work">
+                <div class="gallery-card-info">
+                    <h3>Casual Outdoor Funshoot</h3>
+                    <p>Creative Lifestyle</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <a href="index.html" class="btn btn-outline">← Back to All Photos</a>
+    </div>
+</body>
+</html>
